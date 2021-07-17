@@ -32,7 +32,10 @@
 
 ## 2 этап (Visual Studio Code) 
 
-    
+Для создания рабочей системы был написан скрипт main.py в Visual Studio Code. 
+Для использования веб-камеры используется функционал библиотеки *OpenCV*. 
+
+![GIF-2](https://media.giphy.com/media/87cLAJUaosOA3FQKKJ/giphy.gif)
 
 
 
