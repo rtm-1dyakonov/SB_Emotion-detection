@@ -7,7 +7,7 @@
   2. *Реализация real-time системы c использованием веб-камеры по выводу на экран текущей эмоции* 
 
 ## 1 этап (Google Colab) 
-Изначально была спроектирована собственная [свёрточная сеть](https://colab.research.google.com/drive/1WEikgSCsdGmDOSYp6Xl27X4SwTSTqdSu?usp=sharing), которая вышла на плато по качеству валидации при значении ~0,45. 
+Изначально была спроектирована собственная [свёрточная сеть](https://colab.research.google.com/drive/1WEikgSCsdGmDOSYp6Xl27X4SwTSTqdSu?usp=sharing) (**Custom.ipynd**), которая вышла на плато по качеству валидации при значении ~0,45. 
 Однако во избежание "изобретения велосипеда", было решенио использовать архитекутры из ModelZoo. Опираясь на сравнительную таблицу, 
 ![изображение](https://user-images.githubusercontent.com/65365762/126033483-0ec4d178-a900-4b18-adb0-d1b85f717a05.png)
 взятую с интернет-ресурса [PyTorch for Beginners: Image Classification using Pre-trained models](https://learnopencv.com/pytorch-for-beginners-image-classification-using-pre-trained-models/), я решил остановить выбор на 3-ёх архитектурах: VGG19, ResNet50 и ModileNet V2. Выбор обоснован как тем, что данные архитектуры обладают относительно малым инференсом и находятся в свободном доступе в пакете TensorFlow.  
@@ -16,9 +16,9 @@
 взятую из публикации [Transfer learning from pre-trained models](https://towardsdatascience.com/transfer-learning-from-pre-trained-models-f2393f124751).
 
 Максимальные значения метрики accuracy на валидационных данных получились следующие:
-  * [VGG19](https://colab.research.google.com/drive/1o5vBPASvslthIGKJHk8J4Axy7oRGlKPk?usp=sharing) - 0,51; 
-  * [ResNet50](https://colab.research.google.com/drive/15tMZfYb4x2lGH05Jz9gnwcojnQ-vt1CZ?usp=sharing) - 0,49;
-  * [MobileNet V2](https://colab.research.google.com/drive/1LHDGYcfnDxggoQih4c3tgC-ylqjyiIu4?usp=sharing) - 0,46.
+  * [VGG19](https://colab.research.google.com/drive/1o5vBPASvslthIGKJHk8J4Axy7oRGlKPk?usp=sharing) - 0,51 (**VGG_19_(AUG).ipynb**); 
+  * [ResNet50](https://colab.research.google.com/drive/15tMZfYb4x2lGH05Jz9gnwcojnQ-vt1CZ?usp=sharing) - 0,49 (**ResNet50.ipynb**);
+  * [MobileNet V2](https://colab.research.google.com/drive/1LHDGYcfnDxggoQih4c3tgC-ylqjyiIu4?usp=sharing) - 0,46 (**MobileNet_V2_(simple_+_AUG).ipynb**).
 
   Данные значения соответствуют обучению с аугментацией данных. Без неё метрика accuracy в среднем была ниже на 5-6%. 
   Соответственно, основой для продолжения разработки стала модель с архитекутрой VGG19. 
@@ -32,14 +32,14 @@
 
 ## 2 этап (Visual Studio Code) 
 
-Для создания рабочей системы был написан скрипт main.py в Visual Studio Code. 
-Для использования веб-камеры используется функционал библиотеки *OpenCV*. 
+Cкрипт для классификации эмоций с использованием веб-камеры *main.py* написан в Visual Studio Code. 
+Для использования веб-камеры применяется функционал библиотеки *OpenCV*. 
 
 ![GIF-2](https://media.giphy.com/media/87cLAJUaosOA3FQKKJ/giphy.gif)  
 
 Есть 2 способа запуска системы на вашем устройстве:
   1. Скачать архив по [ссылке](https://drive.google.com/file/d/1GdflGrwuEtljz3CpnuJugINq47E-I_uZ/view?usp=sharing), распаковать на своё устройство и запустить файл main.exe. После небольшого ожидания должна запуститься камера  
-  2. Следовать следующим указаниям (В этом случае для запуска на Вашем устройстве **должен** быть установлен Python. Для установки см. [ссылку](https://thecode.media/py-install/)).
+  2. Руководствоваться следующими указаниями (в этом случае для воспроизведения решения на Вашем устройстве **должен** быть установлен Python. Для установки см. [ссылку](https://thecode.media/py-install/)).
 
 Шаги для использования системы распознавания эмоций:
   1. Скачать *haarcascade_frontalface_default.xml* из данного репозитория. 
@@ -49,8 +49,8 @@
   3. Скачать файл *main.py*
   4. Скрипт *main.py*, модель *haarcascade_frontalface_default.xml* и папка с *моделью по классификации эмоций* (saved_model_trt либо Ваша модель) должны лежать в 1 директории
   ![изображение](https://user-images.githubusercontent.com/65365762/126067086-0daee382-d728-4cc8-92d1-2c6cca1f8834.png)
-  6. В папке с файлом *main.py* открыть командную строчку и прописать **py main.py**
-  7. Если у Вас не установлен Keras или cv2 (OpenCV), то понадобится прописать **pip install keras** или **pip install opencv-python** соответственно, а после повторить шаг 5.
+  5. В папке с файлом *main.py* открыть командную строчку и прописать **py main.py**
+  6. Если у Вас не установлен Keras или cv2 (OpenCV), то понадобится прописать **pip install keras** или **pip install opencv-python** соответственно, а после повторить шаг 5.
 
 
 
