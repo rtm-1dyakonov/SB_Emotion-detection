@@ -9,8 +9,8 @@ import numpy as np
 модели (либо путь до скаченного по ссылке из репозитория и распакованного архива saved_model_trt)
 """
 
-face_classifier = cv2.CascadeClassifier(r'models\Emotion_Detection\haarcascade_frontalface_default.xml') # классический (не нейросетевой) детектор лица OpenCV
-classifier = load_model(r'models\saved_model_trt-20210716T124048Z-001\saved_model_trt') # обученная модель для классификации эмоций
+face_classifier = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml') # классический (не нейросетевой) детектор лица OpenCV
+classifier = load_model(r'saved_model_trt') # папка обученной модели по классификации эмоций
 
 emotion_labels = {8: "uncertain", 7: "surprise", 6: "sad", 5: "neutral", 4: "happy", 3: "fear", 2: "disgust", 1: "contempt", 0: "anger"} 
 
