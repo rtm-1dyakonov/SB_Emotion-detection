@@ -52,7 +52,12 @@ Cкрипт для классификации эмоций с использов
   5. В папке с файлом *main.py* открыть командную строчку и прописать **py main.py**
   6. Если у Вас не установлен Keras или cv2 (OpenCV), то понадобится прописать **pip install keras** или **pip install opencv-python** соответственно, а после повторить шаг 5.
 
+## Ссылки для скачивания файлов
 
+  * [test_kaggle.zip](https://drive.google.com/file/d/1kGxkvH8c9WC1AKKZpXOmEbesS0EiZ7B7/view?usp=sharing); 
+  * [train.zip](https://drive.google.com/file/d/1JcZGqGFubGi_7W-RCO1StPhvw90Qlfx0/view?usp=sharing);
+  * [VGG19 model (21 эпоха)](https://drive.google.com/file/d/1C0UlrasAdX5xzTgDIz-kn8naIVFO8W01/view?usp=sharing);
+  * [saved_model_trt](https://drive.google.com/file/d/162YQlfzF2MPvYdqpTkdpVDy4Kf4mGPoS/view?usp=sharing) (VGG19 model (21 эпоха) + TensorRT).
 
 
 
